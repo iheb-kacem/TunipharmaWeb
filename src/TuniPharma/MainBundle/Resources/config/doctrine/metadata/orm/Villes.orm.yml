@@ -1,0 +1,28 @@
+Villes:
+    type: entity
+    table: villes
+    id:
+        codepostal:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        gouvernorat:
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+            comment: ''
+            column: Gouvernorat
+        delegation:
+            type: string
+            nullable: false
+            length: 30
+            fixed: false
+            comment: ''
+            column: Delegation
+    lifecycleCallbacks: {  }

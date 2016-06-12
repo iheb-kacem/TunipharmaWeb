@@ -1,0 +1,107 @@
+ {% extends "MainBundle::PageLayout.html.twig" %}
+ {% block corps %}
+ <div class='row'>
+              <div class='col-sm-12'>
+                <div class='page-header page-header-with-icon'>
+                  <i class='fa-icon-info-sign'></i>
+                  <h3>
+                      Pharmacie </h3> <h2 style="color:green">{% block pharmacie %}{% endblock pharmacie %}</h2> 
+                </div>
+                <div class='row text-center'>
+                  <div class='col-sm-3'>
+                    <div class='icon-wrap icon-circle contrast-bg icon-md'>
+                      <i class='fa-icon-map-marker text-white'></i>
+                    </div>
+                    <h3>Address</h3>
+                    <ul class='list-unstyled'>
+                      <li>{% block addresse %}
+                          {% endblock addresse %}
+                      </li>
+                      
+                    </ul>
+                  </div>
+                  <div class='col-sm-3'>
+                    <div class='icon-wrap icon-circle contrast-bg icon-md'>
+                      <i class='fa-icon-phone text-white'></i>
+                    </div>
+                    <h3>Telephone</h3>
+                    <ul class='list-unstyled'>
+                      <li>{% block tel %}
+                          {% endblock tel %}
+                      </li>
+                      
+                    </ul>
+                  </div>
+                  <div class='col-sm-3'>
+                    <div class='icon-wrap icon-circle contrast-bg icon-md'>
+                      <i class='fa-icon-envelope-alt text-white'></i>
+                    </div>
+                    <h3>E-Mail</h3>
+                    <ul class='list-unstyled'>
+                      <li>{% block mail %}
+                          {% endblock mail %}
+                      </li>
+                      
+                    </ul>
+                  </div>
+                  <div class='col-sm-3'>
+                    <div class='icon-wrap icon-circle contrast-bg icon-md'>
+                      <i class='fa-icon-time text-white'></i>
+                    </div>
+                    <h3>Horaire</h3>
+                    <ul class='list-unstyled'>
+                      {% block horaire %}
+                       {% endblock horaire %}
+                    </ul>
+                  </div>
+                    <div class='col-sm-3'>
+                    <div class='icon-wrap icon-circle contrast-bg icon-md'>
+                        <i class='fa-icon-star text-white'> </i>
+                    </div>
+                    <h3><a href="{{ path('_service') }}" />Service</a></h3>
+                    <ul class='list-unstyled'>
+                      {% block service %}
+                       {% endblock service %}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+               <div class='col-sm-6'>
+                   
+                <div class='page-header page-header-with-icon'>
+                  <i class='fa-icon-map-marker'></i>
+                  <h2>
+                    Localisation
+                  </h2>
+                   
+                </div>
+                   {% block map %}
+                
+                  {% endblock map %}
+                 
+              </div>
+                
+                   
+                   
+                   
+                   
+                   
+                  <div class='col-sm-6'>
+                <div class='page-header page-header-with-icon'>
+                  <i class='fa-icon-time'></i></i>
+                  <h2>Jours de garde</h2>
+                </div>
+                
+              </div> 
+                   
+                   
+                 {% block garde %}
+                  {% endblock garde %}  
+                   
+                   
+            </div>
+        </div>
+		
+        
+        {% endblock corps %}

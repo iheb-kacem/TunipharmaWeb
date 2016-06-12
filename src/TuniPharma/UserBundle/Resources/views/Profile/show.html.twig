@@ -1,0 +1,42 @@
+{% extends "MainBundle::PageLayout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+{% block title %}
+    Profile pharmacien | TuniPharma
+{% endblock title %}
+{% block titre %}
+    Profile pharmacien
+{% endblock titre %}
+{% block description %}
+{% endblock description %}
+{% block corps %}
+
+    <div class='row'>
+        <div class='col-sm-12'>
+            <div class='row'>
+                <div class='col-sm-12'>
+                    <fieldset class='row'>
+                        <div class='col-sm-12'>
+                            {% include "FOSUserBundle:Profile:show_content.html.twig" %}
+                        </div>
+                    </fieldset>
+                        <hr class='hr-dashed'>
+                        <div class='form-actions mg-t-lg'>
+                            <div class='row'>
+                                <a href="{{ path('fos_user_profile_edit') }}">
+                                    <div class='col-sm-7 col-sm-offset-5'>
+                                        <div class='text-center-xs'>
+                                            <div class='btn btn-contrast btn-lg'>
+                                                <i class='fa-icon-edit'></i>
+                                                Modifier Votre Profile
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock corps %}

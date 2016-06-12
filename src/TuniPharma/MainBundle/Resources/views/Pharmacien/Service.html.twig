@@ -1,0 +1,59 @@
+<form class="form" method="post" action="#" accept-charset="UTF-8">
+    <div class="col-sm-5">
+        <div class="form-group">
+            <label>Liste des Services:</label>
+
+            <select class="form-control" id="input-select-dispo" multiple="multiple" size ="7">
+                {% for service in services %}
+
+
+                <option value="{{ service.id }}">{{ service.nom }}</option>
+
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    <div class="col-sm-2">
+
+        <center>
+            <br>
+            <br>
+
+            <a class="btn btn-danger btn-sm btn-circle" id="tocurrent" href="#">
+
+                <i class="fa-icon-chevron-right  text-white"></i>
+
+            </a>
+            <br>
+            <br>
+
+        
+
+            <a class="btn btn-danger btn-sm btn-circle" id="todispo" href="#">
+
+                <i class="fa-icon-chevron-left  text-white"></i>
+
+            </a>
+
+        </center>
+        
+
+    </div>
+    <div class="col-sm-5">
+        <div class="form-group">
+            <label>Liste des Services disponibles:</label>
+
+            <select class="form-control" id="input-select-current" name='hh' multiple="multiple" size ="7">
+                
+                {% for service in pharmacie.idService %}
+
+                <option value="{{ service.id }}">{{ service.nom }}</option>
+
+                {% endfor %}
+            </select>
+        </div>
+
+    </div>
+</form>
+
+

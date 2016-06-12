@@ -1,0 +1,62 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<div class='row'>
+    <div class='col-sm-12'>
+        <div class='row'>
+            <div class='col-sm-12'>
+                <form class="form form-horizontal" action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+                    {{ form_widget(form._token) }}
+                    <fieldset class='row'>
+                        <div class='col-sm-4 mg-b-md'>
+                            <div class='lead'>Informations Personelles : </div>
+                        </div>
+                        <div class='col-sm-7 col-sm-offset-1'>
+                            <div class='form-group'>
+                                <label for="nom">Nom : </label>
+                                {{ form_widget(form.nom, { 'attr': {'class': 'form-control'} }) }}
+                            </div>
+                            <div class='form-group'>
+                                <label for="nom">Prénom : </label>
+                                {{ form_widget(form.prenom, { 'attr': {'class': 'form-control'} }) }}
+                            </div>
+                            <div class='form-group'>
+                                <label for="email">E-Mail : </label>
+                                {{ form_widget(form.email, { 'attr': {'class': 'form-control'} }) }}
+                            </div>
+                            <div class='form-group'>
+                                <label for="cin">N° Carte d'Identité : </label>
+                                {{ form_widget(form.cin, { 'attr': {'class': 'form-control'} }) }}
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class='row'>
+                        <div class='col-sm-4 mg-b-md'>
+                            <div class='lead'>Paramétres d'identification :</div>
+                        </div>
+                        <div class='col-sm-7 col-sm-offset-1'>
+                            <div class='form-group'>
+                                <label for="nom">Pseudo : </label>
+                                {{ form_widget(form.username, { 'attr': {'class': 'form-control'} }) }}
+                            </div>
+                            <div class='form-group'>
+                                <label for="nom">Mot de Passe : </label>
+                                {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control'} }) }}
+                            </div>
+                            <div class='form-group'>
+                                <label for="nom">Confirmation : </label>
+                                {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control'} }) }}
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class='col-sm-7 col-sm-offset-1'>
+                        <div class='col-md-9 col-md-offset-3'>
+                            <button class='btn btn-contrast' type='submit'>
+                                <i class='icon-save'></i>
+                                S'inscrire
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

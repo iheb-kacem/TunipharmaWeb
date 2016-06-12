@@ -1,0 +1,16 @@
+{% extends "MainBundle::PageLayout.html.twig" %}
+{% block title %}
+    Vérification d'E-Mail | TuniPharma
+{% endblock title %}
+{% block titre %}
+    Vérification d'E-Mail
+{% endblock titre %}
+{% block description %}
+{% endblock description %}
+{% block corps %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+<p>
+{{ 'resetting.check_email'|trans({'%email%': email}) }}
+</p>
+{% endblock corps %}

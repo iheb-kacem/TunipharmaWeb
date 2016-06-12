@@ -1,0 +1,17 @@
+{% extends "MainBundle::PageLayout.html.twig" %}
+{% block title %}
+    Confirmation | TuniPharma
+{% endblock title %}
+{% block titre %}
+    Confirmation
+{% endblock titre %}
+{% block description %}
+{% endblock description %}
+{% block corps %}
+
+    {% trans_default_domain 'FOSUserBundle' %}
+    <div class="alert alert-success fade in">
+        <strong>Inscription avec Succés !</strong>
+    </div>
+
+{% endblock corps %}

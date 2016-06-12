@@ -1,0 +1,13 @@
+{% extends "MainBundle::PageLayout.html.twig" %}
+{% block title %}
+    S'inscrire | TuniPharma
+{% endblock title %}
+{% block titre %}
+    S'inscrire
+{% endblock titre %}
+{% block description %}
+    Devenez partenaire TuniPharma
+{% endblock description %}
+{% block corps %}
+{% include "FOSUserBundle:Registration:register_content.html.twig" %}
+{% endblock corps %}

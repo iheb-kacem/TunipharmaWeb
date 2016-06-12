@@ -1,0 +1,12 @@
+{% extends "MainBundle::PageLayout.html.twig" %}
+{% block title %}
+    Récuperation du Mot de Passe | TuniPharma
+{% endblock title %}
+{% block titre %}
+    Récuperation du Mot de Passe
+{% endblock titre %}
+{% block description %}
+{% endblock description %}
+{% block corps %}
+{% include "FOSUserBundle:Resetting:request_content.html.twig" %}
+{% endblock corps %}

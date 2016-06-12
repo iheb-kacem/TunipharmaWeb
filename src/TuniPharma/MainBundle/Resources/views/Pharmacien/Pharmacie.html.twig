@@ -1,0 +1,95 @@
+
+<div class="col-sm-12">
+    <form class="form form-horizontal" id='form_pharmacie' action="{{ path('_EspacePharmacien') }}" {{ form_enctype(form_pharmacie) }} method="POST" >
+
+        {{ form_widget(form_pharmacie._token) }}
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="input-text">Nom du Pharmacie</label>
+            <div class="col-md-5">
+                {{ form_widget(form_pharmacie.nom, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="input-text">Adresse</label>
+            <div class="col-md-5">
+                {{ form_widget(form_pharmacie.adresse, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+        </div>
+        {% if type == 'new' %}
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="input-select">Gouvernorat</label>
+                <div class="col-md-5">
+                    <select onchange="print_state('delegation', this.value);" class="form-control" id="gouvernorat">
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="input-select">Délègation</label>
+                <div class="col-md-5">
+                    <select onchange="print_code('input-code', this.value);" class="form-control" id="delegation">
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="input-text">Code Postal</label>
+                <div class="col-md-5">
+                    <input id="input-code" class="form-control" type="text" placeholder="Text field" value="{{ pharmacie.codepostal }}" disabled="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="input-text">Code Postal</label>
+                <div class="col-md-5">
+                    {{ form_widget(form_pharmacie.type, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+            </div>    
+        {% else %}
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="input-text">Gouvernorat</label>
+                <div class="col-md-5">
+                    <input id="input-text" class="form-control" type="text" placeholder="Text field" value="{{ ville.gouvernorat }}" disabled="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="input-text">Délègation</label>
+                <div class="col-md-5">
+                    <input id="input-text" class="form-control" type="text" placeholder="Text field" value="{{ ville.delegation }}" disabled="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="input-text">Code Postal</label>
+                <div class="col-md-5">
+                    <input id="input-text" class="form-control" type="text" placeholder="Text field" value="{{ pharmacie.codepostal }}" disabled="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="input-text">Type de Pharmacie</label>
+                <div class="col-md-5">
+                    <input id="input-text" class="form-control" type="text" placeholder="Text field" value="{{ pharmacie.type }}" disabled="">
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="input-text">N° de Télèphone</label>
+            <div class="col-md-5">
+                {{ form_widget(form_pharmacie.numtel, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="input-text">E-mail</label>
+            <div class="col-md-5">
+                {{ form_widget(form_pharmacie.email, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+        </div>
+        {{ form_rest(form_pharmacie) }}
+        <div class='col-sm-7 col-sm-offset-1'>
+            <div class='col-md-9 col-md-offset-3'>
+                <button class='btn btn-contrast' type='submit'>
+                    <i class='icon-save'></i>
+                    Enregistrer
+                </button>
+            </div>
+        </div>
+    </form>
+
+</div>

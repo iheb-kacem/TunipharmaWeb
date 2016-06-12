@@ -1,0 +1,56 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+<div class='col-sm-12'>
+    <form  class="form form-horizontal" action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
+        <fieldset class='row'>
+            {{ form_widget(form._token) }}
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="input-text">Pseudo</label>
+                <div class="col-md-5">
+                    {{ form_widget(form.username, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="input-text">Nom</label>
+                <div class="col-md-5">
+                    {{ form_widget(form.nom, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="input-text">prénom</label>
+                <div class="col-md-5">
+                    {{ form_widget(form.prenom, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="input-text">N° Carte d'Identité</label>
+                <div class="col-md-5">
+                    {{ form_widget(form.cin, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="input-text">E-mail</label>
+                <div class="col-md-5">
+                    {{ form_widget(form.email, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="input-text">Mot de Passe Actuelle</label>
+                <div class="col-md-5">
+                    {{ form_widget(form.current_password, { 'attr': {'class': 'form-control'} })  }}
+                </div>
+            </div>
+
+        </fieldset>
+        <hr class='hr-dashed'>
+        <div class='col-sm-7 col-sm-offset-1'>
+            <div class='col-md-9 col-md-offset-3'>
+                <button class='btn btn-contrast' type='submit'>
+                    <i class='icon-save'></i>
+                    Enregistrer Votre Profile
+            </div>
+        </div>
+
+    </form>
+</div>

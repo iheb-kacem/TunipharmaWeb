@@ -1,0 +1,234 @@
+{% extends "MainBundle::PharmacieLayout.html.twig" %}
+{% block title %}
+   Pharmacie {{ ph.nom }} | TuniPharma
+{% endblock title %}
+{% block titre %}
+    Pharmacie {{ ph.nom }}
+{% endblock titre %}
+{% block description %}
+ 
+{% endblock description %}
+
+
+
+
+{% block corps %}
+    <div class='row'>
+        <div class='col-sm-12'>
+            <div class='page-header page-header-with-icon'>
+                <i class='fa-icon-info-sign'></i>
+                <h3>Pharmacie</h3> 
+            </div>
+            <div class='row text-center'>
+                <div class='col-sm-4'>
+                    <div class='icon-wrap icon-circle contrast-bg icon-md'>
+                        <i class='fa-icon-map-marker text-white'></i>
+                    </div>
+                    <h3>Address</h3>
+                    <ul class='list-unstyled'>
+                        <li>
+                            {{ ph.adresse }}
+                        </li>
+                        <li>
+                            {{ ph.codepostal }}, {{ ville.delegation }}
+                        </li>
+                        <li>
+                            {{ ville.gouvernorat }}
+                        </li>
+                    </ul>
+                </div>
+                <div class='col-sm-4'>
+                    <div class='icon-wrap icon-circle contrast-bg icon-md'>
+                        <i class='fa-icon-phone text-white'></i>
+                    </div>
+                    <h3>Telephone</h3>
+                    <ul class='list-unstyled'>
+                        <li>
+                            {{ ph.numtel }}
+                        </li>
+
+                    </ul>
+                </div>
+                <div class='col-sm-4'>
+                    <div class='icon-wrap icon-circle contrast-bg icon-md'>
+                        <i class='fa-icon-envelope-alt text-white'></i>
+                    </div>
+                    <h3>E-Mail</h3>
+                    <ul class='list-unstyled'>
+                        <li>
+                            {{ ph.email }}
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <hr></hr>
+            <div class='row text-center'>
+                <div class='col-sm-4'>
+                    <div class='icon-wrap icon-circle contrast-bg icon-md'>
+                        <i class='fa-icon-time text-white'></i>
+                    </div>
+                    <h3>Horaire</h3>
+                    <ul class='list-unstyled'>
+
+                        {% if ph.type == "Pharmacie de Nuit" %}
+                            <strong>  19:30 - 07:30</strong>
+                        {% endif %}
+                        {% if ph.type == "Pharmacie de Jour" %}               
+                            <li>
+                                Lundi - Vendredi
+                                &mdash;
+
+
+                                <strong>08:30 - 19:00</strong>
+
+                            </li>
+                            <li>
+                                Samedi
+                                &mdash;
+                                <strong>08:30 - 14:00</strong>
+                            </li>
+                            <li>
+                                Dimanche
+                                &mdash;
+                                <strong>Fermée</strong>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class='col-sm-4'>
+                    <div class='icon-wrap icon-circle contrast-bg icon-md'>
+                        <i class='fa-icon-star text-white'> </i>
+                    </div>
+                    <h3>Service</h3>
+                    <ul class='list-unstyled'>
+                        <li style="font-family:cursive">
+                            {% for i in ph.idService %}
+                                <a  href="{{ path('_service') }}">
+                                    <h5>   {{ i.nom }} </h5> ( {{ i.categorie }} )
+
+                                </a>
+                            {% endfor %}
+
+                        </li>
+                    </ul>
+                </div>
+                <div class='col-sm-4'>
+                    <div class='icon-wrap icon-circle contrast-bg icon-md'>
+                        <i class='fa-icon-time'></i></i>
+                    </div>
+                    <h3>Garde</h3>
+                    <ul class='list-unstyled'>
+                        {% for i in garde %}
+                            <li>{{ i }}</li>
+
+                        {% endfor %}
+                    </ul>
+
+                </div> 
+            </div>
+        </div>
+        <div class='col-sm-6'>
+
+            <div class='page-header page-header-with-icon'>
+                <i class='fa-icon-map-marker'></i>
+                <h2>
+                    Localisation
+                </h2>
+            </div>
+
+            <div id='map-canvas'>
+            </div> 
+
+
+        </div>
+        <div class='col-sm-6'>
+            <div class='page-header page-header-with-icon'>
+                <i class='fa-icon-facebook '></i>
+                <h2>
+                    Commentaire
+                </h2>
+            </div>
+            <div id="fb-root"></div> 
+            <div class="fb-comments" data-width="1000" data-numposts="5" data-colorscheme="light"></div>
+            
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock corps %}
+{% block scripts %}
+
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApra_QEBW3-pPoaWIQNmCpY5e0skbX3pQ&sensor=false">
+    </script>
+
+    <script>
+
+        var initializeMap;
+
+        initializeMap = function() {
+            var iw1, latlng, map, marker, options;
+
+            latlng = new google.maps.LatLng({{ ph.lat }}, {{ ph.log }});
+            options = {
+                scrollwheel: false,
+                zoom: 16,
+                center: latlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                mapTypeControl: true
+            };
+
+            map = new google.maps.Map(document.getElementById("map-canvas"), options);
+
+            marker = new google.maps.Marker({
+                position: latlng,
+                map: map
+            });
+
+            iw1 = new google.maps.InfoWindow({
+                content: "Here we are!"
+            });
+
+            return google.maps.event.addListener(marker, "click", function(e) {
+                return iw1.open(map, this);
+            });
+        };
+
+        google.maps.event.addDomListener(window, 'load', initializeMap);
+    </script>
+<script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&appId=474614616003744&version=v2.0"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
+    <!-- / not required javascripts -->
+    <script src="assets/javascripts/demo.js" type="text/javascript"></script>
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '../www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-44249116-1', 'bublinastudio.com');
+        ga('send', 'pageview');
+    </script>
+
+{% endblock scripts %}
