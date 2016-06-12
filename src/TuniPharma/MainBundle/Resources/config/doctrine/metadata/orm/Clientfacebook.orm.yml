@@ -1,0 +1,42 @@
+Clientfacebook:
+    type: entity
+    table: clientfacebook
+    id:
+        id:
+            type: decimal
+            nullable: false
+            precision: 65
+            scale: 0
+            comment: ''
+            id: true
+            column: ID
+            generator:
+                strategy: IDENTITY
+    fields:
+        nom:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            column: Nom
+        pseudo:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            column: Pseudo
+        email:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            column: Email
+        birthday:
+            type: date
+            nullable: false
+            comment: ''
+            column: Birthday
+    lifecycleCallbacks: {  }

@@ -1,0 +1,33 @@
+PharmacieGarde:
+    type: entity
+    table: pharmacie_garde
+    indexes:
+        UNIQ_9DD283755FC19434:
+            columns:
+                - pharmacie
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: ID
+            generator:
+                strategy: IDENTITY
+    fields:
+        jour:
+            type: date
+            nullable: false
+            comment: ''
+    manyToOne:
+        pharmacie:
+            targetEntity: Pharmacie
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                pharmacie:
+                    referencedColumnName: ID
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

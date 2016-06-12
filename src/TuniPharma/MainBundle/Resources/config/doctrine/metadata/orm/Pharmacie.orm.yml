@@ -1,0 +1,107 @@
+Pharmacie:
+    type: entity
+    table: pharmacie
+    indexes:
+        fk_pharmacien:
+            columns:
+                - pharmacien
+        fk_codepostal:
+            columns:
+                - codepostal
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: ID
+            generator:
+                strategy: IDENTITY
+    fields:
+        nom:
+            type: string
+            nullable: false
+            length: 30
+            fixed: false
+            comment: ''
+        adresse:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+        codepostal:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+        type:
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+            comment: ''
+        etat:
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+            comment: ''
+        numtel:
+            type: string
+            nullable: true
+            length: 20
+            fixed: false
+            comment: ''
+        email:
+            type: string
+            nullable: true
+            length: 30
+            fixed: false
+            comment: ''
+        log:
+            type: float
+            nullable: true
+            precision: 30
+            scale: 20
+            comment: ''
+        lat:
+            type: float
+            nullable: true
+            precision: 30
+            scale: 20
+            comment: ''
+        dateInscription:
+            type: datetime
+            nullable: false
+            comment: ''
+            column: Date_Inscription
+    manyToOne:
+        pharmacien:
+            targetEntity: Pharmacien
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                pharmacien:
+                    referencedColumnName: ref
+            orphanRemoval: false
+    manyToMany:
+        idService:
+            targetEntity: Service
+            cascade: {  }
+            mappedBy: null
+            inversedBy: idPharmacie
+            joinTable:
+                name: pharmacie_service
+                joinColumns:
+                    -
+                        name: id_pharmacie
+                        referencedColumnName: ID
+                inverseJoinColumns:
+                    -
+                        name: id_service
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }

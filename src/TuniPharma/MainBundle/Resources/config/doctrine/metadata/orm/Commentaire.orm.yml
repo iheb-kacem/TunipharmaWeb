@@ -1,0 +1,38 @@
+Commentaire:
+    type: entity
+    table: commentaire
+    indexes:
+        fk_pharmacie:
+            columns:
+                - pharmacie
+    id:
+        client:
+            type: decimal
+            nullable: false
+            precision: 65
+            scale: 0
+            comment: ''
+            id: true
+        pharmacie:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+    fields:
+        jour:
+            type: datetime
+            nullable: false
+            comment: ''
+        evaluation:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+        commentaire:
+            type: string
+            nullable: true
+            length: 2000
+            fixed: false
+            comment: ''
+    lifecycleCallbacks: {  }

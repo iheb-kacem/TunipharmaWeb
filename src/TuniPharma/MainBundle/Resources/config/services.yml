@@ -1,0 +1,48 @@
+parameters:
+#    main.example.class: TuniPharma\MainBundle\Example
+
+services:
+#    main.example:
+#        class: %main.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+    main.admin.pharmacie:
+        class: TuniPharma\MainBundle\Admin\PharmacieAdmin
+        arguments: [~, TuniPharma\MainBundle\Entity\Pharmacie, MainBundle:PharmacieAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Pharmacie}
+
+    main.admin.pharmacien:
+        class: TuniPharma\MainBundle\Admin\PharmacienAdmin
+        arguments: [~, TuniPharma\MainBundle\Entity\Pharmacien, MainBundle:PharmacienAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Pharmacien}
+
+    main.admin.service:
+        class: TuniPharma\MainBundle\Admin\ServiceAdmin
+        arguments: [~, TuniPharma\MainBundle\Entity\Service, MainBundle:ServiceAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Service}
+
+    main.admin.categorie:
+        class: TuniPharma\MainBundle\Admin\CategorieAdmin
+        arguments: [~, TuniPharma\MainBundle\Entity\Categorie, MainBundle:CategorieAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Categorie}
+
+    main.admin.clientfacebook:
+        class: TuniPharma\MainBundle\Admin\ClientfacebookAdmin
+        arguments: [~, TuniPharma\MainBundle\Entity\Clientfacebook, MainBundle:ClientfacebookAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Clientfacebook}
+
+    main.admin.commentaire:
+        class: TuniPharma\MainBundle\Admin\CommentaireAdmin
+        arguments: [~, TuniPharma\MainBundle\Entity\Commentaire, MainBundle:CommentaireAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Commentaire}
+
+    main.admin.pharmacie_garde:
+        class: TuniPharma\MainBundle\Admin\PharmacieGardeAdmin
+        arguments: [~, TuniPharma\MainBundle\Entity\PharmacieGarde, MainBundle:PharmacieGardeAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: PharmacieGarde}

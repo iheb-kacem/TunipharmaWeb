@@ -1,0 +1,38 @@
+_welcome:
+    pattern:  /
+    defaults: { _controller: MainBundle:Default:index }
+_pharmacie:
+    pattern:  /pharmacie/{id}
+    defaults: { _controller: MainBundle:Pharmacie:Pharmacie }
+_EspacePharmacien:
+    pattern:  /espacePharmacien/
+    defaults: { _controller: MainBundle:Pharmacien:Espace }
+_rechercher:
+    pattern:  /search/
+    defaults: { _controller: MainBundle:Recherche:Search }
+_service:
+    pattern:  /service/
+    defaults: { _controller: MainBundle:Service:Service }
+_rechercher_delegations:
+    pattern:  /search/delegations
+    defaults: { _controller: MainBundle:Recherche:delegations }
+_gardes:
+    pattern:  /espacePharmacien/gardes
+    defaults: { _controller: MainBundle:Pharmacien:getGarde }
+_EspacePharmacien_saveus:
+    pattern:  /espacePharmacien/saveus
+    defaults: { _controller: MainBundle:Pharmacien:Saveus }
+_blog:
+    pattern:  /blog
+    defaults: { _controller: MainBundle:Default:blog }
+_contact:
+    pattern:  /contact
+    defaults: { _controller: MainBundle:Default:contact }
+_add_service:
+    pattern:  /add-service
+    defaults: { _controller: MainBundle:AddService:Service }
+    
+_add_service_name:
+    pattern:  /add-service/name
+    defaults: { _controller: MainBundle:AddService:Name }
+    
